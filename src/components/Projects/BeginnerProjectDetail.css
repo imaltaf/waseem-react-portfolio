@@ -1,14 +1,6 @@
-/* BeginnerProjectsDetail.css */
-
 /* Styles for the component container */
-/* .container {
+.BeginnerProject {
   text-align: center;
-  padding: 10px;
-  background-color: #0a141f;
-} */
-.BeginnerProject{
-  text-align: center;
- 
   padding: 10px;
 }
 
@@ -21,7 +13,7 @@ h1 {
 
 /* Styles for project buttons */
 .project-button {
-  background-color: #001e3f; /* Default button color */
+  background-color: #007bff; /* Default button color */
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -35,23 +27,28 @@ h1 {
 .project-button.selected {
   background-color: #28a745; /* Selected button color */
 }
+/* CSS for the dancing animation */
+/* @keyframes dance {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-5px); background-color: #ff5733; }
+  50% { transform: translateY(0); background-color: #33ff57; }
+  75% { transform: translateY(5px); background-color: #5733ff; }
+} */
 
-/* Add similar styles for other buttons as needed */
-/* BeginnerProjectsDetail.css */
-
-.project-button {
-  background-color: #007bff; /* Default button color */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 10px;
-  font-size: 16px;
+/* Apply the dancing animation and different background colors to each button */
+.button1 {
+  animation: dance 1s infinite 0.2s;
+  background-color: #031b4e; /* Initial background color for button 1 */
 }
 
-.project-button.selected {
-  background-color: #28a745; /* Selected button color */
+.button2 {
+  animation: dance 1s infinite 0.2s;
+  background-color: #031b4e; /* Initial background color for button 2 */
+}
+
+.button3 {
+  animation: dance 1s infinite 0.4s;
+  background-color: #031b4e; /* Initial background color for button 3 */
 }
 
 /* Add similar styles for other buttons as needed */
