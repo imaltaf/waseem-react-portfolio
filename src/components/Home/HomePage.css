@@ -1,0 +1,95 @@
+.homepage-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: larger;
+    margin: 10px;
+   
+  }
+  
+  
+  /* Infinite animation for "Akram" */
+  .animate-name-akram {
+    color: #ff4500; /* Orange color */
+    animation: fadeInNameAkram 2s infinite;
+    font-weight: 900;
+    padding: 20px;
+  }
+  
+  /* Infinite floating animation for "Full Stack Web Developer" */
+  .animate-infinite {
+    color: #00ff00; /* Green color */
+    animation: float 5s infinite linear;
+    font-weight: bold; /* Make the font bold */
+    text-align: center; /* Center align the text */
+  }
+  
+  @keyframes fadeInNameWaseem {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeInNameAkram {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust the floating distance */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .animate-infinite {
+    color: #17044d; /* Green color */
+    animation: pulse 1s infinite;
+    animation-delay: 2s; /* Delay after "Akram" animation */
+    font-weight: bold; /* Make the font bold */
+    text-align: center; /* Center align the text */
+  }  
+  
+  @keyframes fadeInNameAkram {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  

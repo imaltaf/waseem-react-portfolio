@@ -1,0 +1,40 @@
+/* Home2.css */
+
+/* Remove the card border */
+.card {
+    border: none;
+    background-color: #07114b;
+    margin: 40px;
+    padding: 30px;
+    color: aliceblue;
+    font-weight: bold;
+  }
+  
+  /* Style the buttons with different colors */
+  .custom-button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Define different button colors */
+  .custom-button.about {
+    background-color: #007bff; /* Blue color */
+  }
+  
+  .custom-button.contact {
+    background-color: #28a745; /* Green color */
+  }
+  
+  .custom-button.skills {
+    background-color: #ff5722; /* Orange color */
+  }
+  .custom-button.projects {
+    background-color: #ce381d;
+
+  }
+  

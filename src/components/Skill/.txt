@@ -1,0 +1,27 @@
+const frontendSkills = [
+  { icon: <FaHtml5 />, name: 'HTML', description: 'Create the structure of web pages.' },
+  { icon: <FaCss3 />, name: 'CSS', description: 'Style the layout and appearance of web pages.' },
+  { icon: <FaJs />, name: 'JavaScript', description: 'Add interactivity and dynamic behavior to web pages.' },
+  { icon: <FaReact />, name: 'React', description: 'Build modern and interactive user interfaces.' },
+  { icon: <FaHtml5 />, name: 'HTML', description: 'Create the structure of web pages.' },
+  { icon: <FaCss3 />, name: 'CSS', description: 'Style the layout and appearance of web pages.' },
+  { icon: <FaJs />, name: 'JavaScript', description: 'Add interactivity and dynamic behavior to web pages.' },
+  { icon: <FaReact />, name: 'React', description: 'Build modern and interactive user interfaces.' },
+];
+
+const backendSkills = [
+  { icon: <FaNodeJs />, name: 'Node.js', description: 'Build scalable and server-side applications.' },
+  { icon: <FaDatabase />, name: 'MongoDB', description: 'Store and manage data in a NoSQL database.' },
+];
+
+const tools = [
+  { icon: <FaCode />, name: 'VS Code', description: 'A powerful code editor for development.' },
+  { icon: <FaToolbox />, name: 'Postman', description: 'Test and document APIs.' },
+  { icon: <FaReact />, name: 'Heroku', description: 'Deploy web applications easily.' },
+];
+
+const upcomingSkills = [
+  { icon: <FaQuestion />, name: 'DevOps', description: 'Emphasizes collaboration between development and operations.' },
+  { icon: <FaQuestion />, name: 'Cyber Security', description: 'Focuses on protecting computer systems from threats.' },
+  { icon: <FaQuestion />, name: 'Hacking', description: 'Identifying vulnerabilities to enhance security.' },
+];

@@ -1,0 +1,75 @@
+/* Custom styles for the Navbar component */
+.navbar {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  .nav-link:hover {
+    color: #021f6eaf; /* Change color on hover */
+    background-color: #f8f9fa; /* Change background color on hover */
+  }
+  .nav-nav-item:hover{
+    color: yellow;
+
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Add responsive styles for the Navbar */
+  @media (max-width: 768px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 180px;
+      right: 0;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: white;
+      width: 100%;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+    .navbar-collapse.show {
+      display: block;
+    }
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav-link {
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      transition: color 0.3s; /* Add transition for color change */
+    }
+    .nav-link:hover {
+        color: red; /* Change color on hover */
+        background-color: #f8f9fa; /* Change background color on hover */
+      }
+    
+      /* Add hover effect for active mobile Navbar link */
+      .nav-link.active {
+        color: #007bff;
+        background-color: #f8f9fa;
+      }
+  }
+  
+  /* Styles for desktop view */
+  @media (min-width: 769px) {
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+    .nav-link {
+      margin-right: 20px;
+    }
+  }
+  

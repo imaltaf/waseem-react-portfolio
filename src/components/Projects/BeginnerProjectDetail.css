@@ -1,0 +1,57 @@
+/* BeginnerProjectsDetail.css */
+
+/* Styles for the component container */
+/* .container {
+  text-align: center;
+  padding: 10px;
+  background-color: #0a141f;
+} */
+.BeginnerProject{
+  text-align: center;
+ 
+  padding: 10px;
+}
+
+/* Styles for the heading */
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-size: 24px;
+}
+
+/* Styles for project buttons */
+.project-button {
+  background-color: #001e3f; /* Default button color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.project-button.selected {
+  background-color: #28a745; /* Selected button color */
+}
+
+/* Add similar styles for other buttons as needed */
+/* BeginnerProjectsDetail.css */
+
+.project-button {
+  background-color: #007bff; /* Default button color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.project-button.selected {
+  background-color: #28a745; /* Selected button color */
+}
+
+/* Add similar styles for other buttons as needed */
