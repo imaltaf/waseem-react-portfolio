@@ -15,6 +15,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
+      <>My name is waseem Akram</>
       
       <div className="container mt-5">
         <Switch>
