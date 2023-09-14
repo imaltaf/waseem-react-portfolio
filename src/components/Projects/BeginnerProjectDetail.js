@@ -3,6 +3,7 @@ import Calculatore from './Frontend/Calculator/Calculatore';
 import TodoList from './Frontend/TodoList/TodoList';
 import '../Projects/BeginnerProjectDetail.css'; // Import your CSS file for this component
 import Weather from '../Projects/Frontend/Weather/Weather'
+import Whatsapp from './Frontend/whatsapp/Whatsapp';
 
 const BeginnerProjectsDetail = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -42,6 +43,12 @@ const BeginnerProjectsDetail = () => {
         >
           Weather
         </button>
+        <button
+          className={`project-button ${selectedProject === 'Whatsapp' ? 'selected' : ''}`}
+          onClick={() => handleProjectClick('Whatsapp')}
+        >
+          Whatsapp
+        </button>
         {/* Add similar buttons for other projects */}
       </div>
          
@@ -50,6 +57,8 @@ const BeginnerProjectsDetail = () => {
 
       {selectedProject === 'TodoList' && <TodoList />}
       {selectedProject === 'Weather' && <Weather />}
+      {selectedProject === 'Whatsapp' && <Whatsapp />}
+
       {/* Add similar conditions for other projects */}
     </div>
   );
