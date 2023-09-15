@@ -6,6 +6,7 @@ import Weather from '../Projects/Frontend/Weather/Weather'
 import Whatsapp from './Frontend/whatsapp/Whatsapp';
 import Employee from './Frontend/TodoList/Employee';
 import CalendarComponent from './Frontend/TodoList/CalendarComponent';
+import TranslationInbox from './Frontend/Transulate/TranslationInbox';
 
 const BeginnerProjectsDetail = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -59,6 +60,11 @@ const BeginnerProjectsDetail = () => {
         >
           Stop watch
         </button>
+        <button
+          className={`project-button ${selectedProject === 'TranslationInbox' ? 'selected' : ''} button6`}
+          onClick={() => handleProjectClick('TranslationInbox')}
+        >
+TranslationInbox        </button>
         {/* Add similar buttons for other projects */}
       </div>
          
@@ -69,6 +75,8 @@ const BeginnerProjectsDetail = () => {
       {selectedProject === 'Whatsapp' && <Whatsapp />}
       {selectedProject === 'Employee' && <Employee />}
       {selectedProject === 'CalendarComponent' && <CalendarComponent />}
+      {selectedProject === 'TranslationInbox' && <TranslationInbox />}
+
 
       {/* Add similar conditions for other projects */}
     </div>

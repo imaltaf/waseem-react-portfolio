@@ -1,74 +1,56 @@
-/* Skill.css */
-
-/* Styling for the buttons */
-button {
-  background-color: #041347;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 20px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease-in-out;
-  align-items: center;
-  
+.skill-wrapper {
+  text-align: center;
+  padding: 2px;
+  margin: auto;
 }
 
-button:hover {
-  background-color: #2980b9;
-}
-
-/* Styling for the skills display */
-.skills-container {
-  margin-top: 20px;
+.category-buttons {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-/* Skill.css */
-
-/* ... (previous CSS code) */
-
-.skill-item {
-  background-color: #041347;
+.category-buttons button {
+  background-color: #007bff;
   color: #fff;
-  border: none;
   padding: 10px 20px;
-  margin: 5px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
-  align-items: center;
+}
+
+/* Add a hover effect */
+.category-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  grid-gap: 16px;
   justify-content: center;
- 
 }
 
-.skill-item:hover {
-  background-color: #3498db; /* Change the background color on hover */
-  transform: scale(1.05); /* Add a scale effect on hover */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+.skill-item {
+  text-align: center;
+  padding: 16px;
+  background-color: #000a27;
+  border-radius: 20px;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+  color: antiquewhite;
 }
+.skill-item:hover{
 
-.skill-item svg {
-  font-size: 34px;
-  margin-right: 10px;
-  color: rgb(235, 235, 241);
-  border: 10px;
+  background-color: #0056b3;
+
 }
-
-/* Animation for the skills display */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@media (min-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
   }
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
 }
