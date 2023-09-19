@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaDatabase, FaCode, FaToolbox, FaQuestion } from 'react-icons/fa';
+
 import './Skill.css';
 
 const Skill = () => {
@@ -10,14 +11,9 @@ const Skill = () => {
     { icon: <FaCss3 />, name: 'CSS' },
     { icon: <FaJs />, name: 'JavaScript' },
     { icon: <FaReact />, name: 'React' },
-    { icon: <FaHtml5 />, name: 'HTML' },
-    { icon: <FaCss3 />, name: 'CSS' },
-    { icon: <FaJs />, name: 'JavaScript' },
-    { icon: <FaReact />, name: 'React' },
-    // Add more frontend skills here
-    // Add more frontend skills here
+    { icon: <FaCode />, name: 'Bootstrap' }, // Use a generic code icon for Bootstrap
+    { icon: <FaCode />, name: 'jQuery' },   // Use a generic code icon for jQuery
   ];
-
   const backendSkills = [
     { icon: <FaNodeJs />, name: 'Node.js' },
     { icon: <FaDatabase />, name: 'MongoDB' },
@@ -57,8 +53,10 @@ const Skill = () => {
     return (
       <div className="skills-container">
         {skills.map((skill, index) => (
-          <div className="skill-item" key={index}>
-            {skill.icon}
+          <div className="skill-item" key={index} title={`I am ${skill.name}`}>
+            <span className="skill-icon">
+              {skill.icon}
+            </span>
             <span className="skill-name">{skill.name}</span>
           </div>
         ))}

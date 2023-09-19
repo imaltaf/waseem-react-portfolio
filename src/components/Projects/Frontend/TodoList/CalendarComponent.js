@@ -1,58 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import 'react-clock/dist/Clock.css';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const CalendarComponent = () => {
-  const [time, setTime] = useState(new Date());
-  const [showTime, setShowTime] = useState(false);
-  const [stopwatchRunning, setStopwatchRunning] = useState(false);
-  const [stopwatchTime, setStopwatchTime] = useState(0);
+  const [date, setDate] = useState(new Date());
+  const [holidays, setHolidays] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (stopwatchRunning) {
-      const interval = setInterval(() => {
-        setStopwatchTime((prevTime) => prevTime + 1);
-      }, 1000);
-      return () => clearInterval(interval);
+    // Replace 'YOUR_API_KEY' with your actual calendarific API key
+    const apiKey = 'https://calendarific.com/api/v2/holidays?&api_key=baa9dc110aa712sd3a9fa2a3dwb6c01d4c875950dc32vs&country=IN&year=2019';
+    const year = date.getFullYear();
+    const countryCode = 'IN'; // Replace with your desired country code
+
+    // Fetch live holiday data from the calendarific API
+    fetch(`'https://calendarific.com/api/v2/holidays?&api_key=baa9dc110aa712sd3a9fa2a3dwb6c01d4c875950dc32vs&country=IN&year=2019'`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Extract the holiday dates from the API response
+        const holidayDates = data.response.holidays.map((holiday) => new Date(holiday.date.iso));
+        setHolidays(holidayDates);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching holiday data:', error);
+        setLoading(false);
+      });
+  }, [date]);
+
+  const isWeekend = (date) => {
+    const day = date.getDay();
+    return day === 0 || day === 6; // Sunday (0) or Saturday (6)
+  };
+
+  const tileContent = ({ date, view }) => {
+    if (view === 'month') {
+      if (holidays.some((holiday) => date.toDateString() === holiday.toDateString())) {
+        return <span className="holiday">Holiday</span>;
+      }
+      if (isWeekend(date)) {
+        return <span className="weekend">Weekend</span>;
+      }
     }
-  }, [stopwatchRunning]);
-
-  const handleCardClick = () => {
-    setShowTime(!showTime);
-  };
-
-  const toggleStopwatch = () => {
-    setStopwatchRunning(!stopwatchRunning);
-  };
-
-  const resetStopwatch = () => {
-    setStopwatchTime(0);
-    setStopwatchRunning(false);
+    return null;
   };
 
   return (
-    <Card className="calendar-card" onClick={handleCardClick}>
-      <Card.Body>
-        <Card.Title>Stopwatch and Time Display</Card.Title>
-        {showTime && (
-          <>
-            <Card.Subtitle className="mb-2 text-muted">Current Time:</Card.Subtitle>
-            <div className="time-display">{time.toLocaleTimeString()}</div>
-          </>
-        )}
-        <Button variant="primary" onClick={toggleStopwatch}>
-          {stopwatchRunning ? 'Stop Stopwatch' : 'Start Stopwatch'}
-        </Button>
-        <Button variant="danger" onClick={resetStopwatch}>
-          Reset Stopwatch
-        </Button>
-        <div className="stopwatch-display">
-          <strong>Stopwatch: </strong>
-          {stopwatchTime} seconds
-        </div>
-      </Card.Body>
-    </Card>
+    <div>
+      <h1>Live Calendar with Holiday Data</h1>
+      {loading ? (
+        <p>Loading holiday data...</p>
+      ) : (
+        <Calendar
+          value={date}
+          onChange={setDate}
+          tileContent={tileContent}
+          calendarType="US"
+        />
+      )}
+    </div>
   );
 };
 
