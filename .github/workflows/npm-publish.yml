@@ -1,0 +1,38 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main # Adjust the branch as needed
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14 # Adjust the Node.js version as needed
+    
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install --save-dev @babel/plugin-proposal-private-property-in-object
+        npm install --save @fortawesome/fontawesome-svg-core
+    
+    - name: Build React application
+      run: npm run build
+      
+    - name: Deploy to remote server
+      run: |
+        scp -r build/* cloudweb2@68.233.100.215:~/waseem_web/
+        ssh cloudweb2@68.233.100.215 "cd /home/cloudweb2/waseem_web/ && docker-compose down || true"
+        ssh cloudweb2@68.233.100.215 "docker rmi waseem-web || true"
+        ssh cloudweb2@68.233.100.215 "cd /home/cloudweb2/waseem_web/ && docker build -t waseem-web . || true"
+        ssh cloudweb2@68.233.100.215 "cd /home/cloudweb2/waseem_web/ && docker-compose up -d || true"
+        ssh cloudweb2@68.233.100.215 "echo 'GitHub Actions: Deployment complete'"
+
