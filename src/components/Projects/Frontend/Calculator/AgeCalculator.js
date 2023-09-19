@@ -12,10 +12,11 @@ const AgeCalculator = () => {
     const ageDate = new Date(ageMilliseconds);
 
     const years = ageDate.getUTCFullYear() - 1970;
+    const months = ageDate.getUTCMonth();
     const days = ageDate.getUTCDate() - 1;
     const hours = ageDate.getUTCHours();
 
-    const ageString = `${years} years ${days} days ${hours} hours`;
+    const ageString = `${days} days, ${months} months, ${years} years, ${hours} hours`;
 
     setAge(ageString);
   };
@@ -50,20 +51,20 @@ const AgeCalculator = () => {
         </div>
       )}
       <style>
-      {`
+        {`
           .age-calculator-container {
             background-color: #02031f;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            margin: 45px;
+            margin: 35px; /* Adjusted margin for mobile */
             color: #333;
             font-family: Arial, sans-serif;
           }
 
           .age-calculator-container h2 {
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Adjusted margin for mobile */
             color: #007bff;
           }
 
@@ -71,7 +72,7 @@ const AgeCalculator = () => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 60px;
+            margin: 20px; /* Adjusted margin for mobile */
           }
 
           .age-inputs input[type="text"],
@@ -129,6 +130,13 @@ const AgeCalculator = () => {
             100% {
               opacity: 1;
               transform: translateY(0);
+            }
+          }
+
+          @media (max-width: 768px) {
+            /* Mobile styles */
+            .age-inputs button {
+              padding: 10px 20px; /* Adjusted padding for mobile */
             }
           }
         `}

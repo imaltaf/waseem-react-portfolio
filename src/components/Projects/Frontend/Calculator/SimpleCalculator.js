@@ -1,80 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Calculator.css';
-import 'font-awesome/css/font-awesome.min.css';
-import { Container, Row, Col, Button } from 'react-bootstrap';
 
-class Calculator extends Component {
-  constructor() {
-    super();
-    this.state = {
-      input: '',
-      result: '0',
-    };
-  }
+const SimpleCalculator = () => {
+  const [input, setInput] = useState('');
+  const [result, setResult] = useState('');
 
-  handleButtonClick = (value) => {
+  const handleButtonClick = (value) => {
     if (value === '=') {
       try {
-        const result = eval(this.state.input);
-        this.setState({ result: result.toString() });
+        setResult(eval(input));
       } catch (error) {
-        this.setState({ result: 'Error' });
+        setResult('Error');
       }
     } else if (value === 'C') {
-      // Clear the last character from the input
-      this.setState((prevState) => ({
-        input: prevState.input.slice(0, -1),
-        result: prevState.input.slice(0, -1) || '0', // Reset result if input is empty
-      }));
-    } else if (value === 'AC') {
-      // Clear the entire input
-      this.setState({ input: '', result: '0' });
-    } else if (value === 'WS') {
-      // Clear the entire input
-      this.setState({ input: '', result: 'Welcome to Calculator' });
+      setInput('');
+      setResult('');
+    } else if (value === 'sqrt') {
+      setInput(input + 'Math.sqrt(');
+    } else if (value === '^') {
+      setInput(input + '**');
+    } else if (value === '(' || value === ')') {
+      setInput(input + value);
     } else {
-      this.setState({ input: this.state.input + value });
+      setInput(input + value);
     }
   };
 
-  render() {
-    return (
-      <Container className="calculator">
-        <Row>
-          <Col md={12} className="calculator-content">
-            <h1 className="headerStyle">Simple -Calculator</h1>
-            <div className="display">
-              <input
-                type="text"
-                value={this.state.input}
-                readOnly
-                className="form-control"
-              />
-              <div className="result">{this.state.result}</div>
-            </div>
-            <div className="calculator-buttons">
-              {[
-                '7', '8', '9', '/',
-                '4', '5', '6', '*',
-                '1', '2', '3', '-',
-                '0', '.', 'C',
-                '=', '+', 'AC', 'WS'
-              ].map((value, index) => (
-                <Button
-                  key={index}
-                  onClick={() => this.handleButtonClick(value)}
-                  variant="outline-secondary"
-                  className={`calculator-button ${value === '=' ? 'equals' : ''}`}
-                >
-                  {value === '=' ? <i className="fa fa-equals" /> : value}
-                </Button>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-}
+  const buttons = [
+    '7', '8', '9', '/',
+    '4', '5', '6', '*',
+    '1', '2', '3', '-',
+    '0', '.', '=', '+',
+    'C', '(', ')', 'sqrt', 
+  ];
 
-export default Calculator;
+  return (
+    <div className="calculator">
+      <h1>Simple Calculator</h1>
+      <input className="display" type="text" value={input} readOnly />
+      <div className="result">{result}</div>
+
+      <div className="buttons">
+        {buttons.map((button, index) => (
+          <button
+            key={index}
+            className="button"
+            onClick={() => handleButtonClick(button)}
+          >
+            {button}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SimpleCalculator;

@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import SimpleCalculator from './SimpleCalculator'
 import EmiCalculator from './EmiCalculator';
 import AgeCalculator from './AgeCalculator';
+import "./Calculator.css"
 
 const Calculatore = () => {
   return (

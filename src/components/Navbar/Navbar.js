@@ -45,34 +45,8 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faCode} /> Skills
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="interviewDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded={showInterviewDropdown}
-                onClick={toggleInterviewDropdown}
-              >
-                <FontAwesomeIcon icon={faUserTie} /> Interview
-              </a>
-              <div className={`dropdown-menu ${showInterviewDropdown ? 'show' : ''}`} aria-labelledby="interviewDropdown">
-                <Link className="dropdown-item" to="/interview/front-end">
-                  Front End
-                </Link>
-                <Link className="dropdown-item" to="/interview/back-end">
-                  Back End
-                </Link>
-                <Link className="dropdown-item" to="/interview/tools">
-                  Tools
-                </Link>
-                <Link className="dropdown-item" to="/interview/books">
-                  Books for Developers
-                </Link>
-              </div>
-            </li>
+           
+            
             <li className="nav-item">
               <Link className={`nav-link ${window.location.pathname === '/blogs' ? 'active' : ''}`} to="/blogs">
                 <FontAwesomeIcon icon={faNewspaper} /> Blogs
